@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import InputForm from "./components/InputForm";
+import PhugoidGraph from "./components/PhugoidGraph";
+import RootLocusGraph from "./components/RootLocusGraph";
+import BodeGraph from "./components/BodeGraph";
+import NicholsGraph from "./components/NicholsGraph";
+import NyquistGraph from "./components/NyquistGraph";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<InputForm />} />
+        <Route path="/phugoid" element={<PhugoidGraph />} />
+        <Route path="/root-locus" element={<RootLocusGraph />} />
+        <Route path="/bode" element={<BodeGraph />} />
+        <Route path="/nichols" element={<NicholsGraph />} />
+        <Route path="/nyquist" element={<NyquistGraph />} />
+      </Routes>
+    </Router>
   );
 }
 
